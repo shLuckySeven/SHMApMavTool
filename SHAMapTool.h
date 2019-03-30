@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-    TGMapNavigationTypeWalk,//步行规划
-    TGMapNavigationTypeDriving,//驾车规划
+    SHMapNavigationTypeWalk,//步行规划
+    SHMapNavigationTypeDriving,//驾车规划
 } TGMapNavigationType;
 
 @interface SHAMapTool : NSObject
@@ -19,6 +19,6 @@ typedef enum : NSUInteger {
 
 //+(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController;
 
-+(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController type:(TGMapNavigationType)type;
++(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController type:(SHMapNavigationType)type;
 
 @end

@@ -44,7 +44,7 @@
 //    for (NSDictionary * dic in mapArray) {
 //        UIAlertAction *defultAction = [UIAlertAction actionWithTitle:[dic objectForKey:@"title"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //            [self alertAction:dic];
-//            DLog(@"点击+++++%@",[dic objectForKey:@"title"]);
+//            NSLog(@"点击+++++%@",[dic objectForKey:@"title"]);
 //
 //        }];
 //        [mapSelectActionSheet addAction:defultAction];
@@ -70,7 +70,7 @@
         
     }
     else if ([str isEqualToString:@"百度地图"]) {
-        DLog(@"点击了————---- %@",str);
+        NSLog(@"点击了————---- %@",str);
         if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:[dic objectForKey:@"url"]]]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dic objectForKey:@"url"]]];
         }
@@ -84,12 +84,12 @@
     
 }
 //判断当前用户手机上都安装了哪些地图客户端
-+ (NSArray *)getInstalledMapAppWithEndLocation:(CLLocationCoordinate2D)endLocation type:(TGMapNavigationType)type
++ (NSArray *)getInstalledMapAppWithEndLocation:(CLLocationCoordinate2D)endLocation type:(SHMapNavigationType)type
 {
     BOOL isWalking =NO;
-    if (type ==TGMapNavigationTypeWalk) {
+    if (type ==SHMapNavigationTypeWalk) {
         isWalking =YES;
-    }else if (type ==TGMapNavigationTypeDriving){
+    }else if (type ==SHMapNavigationTypeDriving){
         isWalking =NO;
     }
     CLLocationCoordinate2D bdLocation = [CommonUtility bd09Encrypt:endLocation.latitude bdLon:endLocation.longitude];//将火星坐标->百度坐标
@@ -158,7 +158,7 @@
     return maps;
 }
 
-+(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController type:(TGMapNavigationType)type{
++(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController type:(SHMapNavigationType)type{
     NSArray * mapArray =[self getInstalledMapAppWithEndLocation:endLocation type:type];
     
     UIAlertController *mapSelectActionSheet=[UIAlertController alertControllerWithTitle:nil message:@"请选择地图" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -167,7 +167,7 @@
     for (NSDictionary * dic in mapArray) {
         UIAlertAction *defultAction = [UIAlertAction actionWithTitle:[dic objectForKey:@"title"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self alertAction:dic];
-            DLog(@"点击+++++%@",[dic objectForKey:@"title"]);
+            NSLog(@"点击+++++%@",[dic objectForKey:@"title"]);
             
         }];
         [mapSelectActionSheet addAction:defultAction];
