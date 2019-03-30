@@ -11,7 +11,7 @@
 typedef enum : NSUInteger {
     SHMapNavigationTypeWalk,//步行规划
     SHMapNavigationTypeDriving,//驾车规划
-} TGMapNavigationType;
+} SHMapNavigationType;
 
 @interface SHAMapTool : NSObject
 
