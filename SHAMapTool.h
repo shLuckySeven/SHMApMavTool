@@ -11,13 +11,12 @@
 typedef enum : NSUInteger {
     SHMapNavigationTypeWalk,//步行规划
     SHMapNavigationTypeDriving,//驾车规划
-} SHMapNavigationType;
+}SHMapNavigationType;
 
 @interface SHAMapTool : NSObject
 
 +(CGFloat)getDistanceWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude latitude2:(CGFloat)latitude2 longitude2:(CGFloat)longitude2;
 
-//+(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController;
 
 +(void)startNavWithEndLocation:(CLLocationCoordinate2D)endLocation viewController:(UIViewController*)viewController type:(SHMapNavigationType)type;
 
